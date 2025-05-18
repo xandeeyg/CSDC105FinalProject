@@ -139,7 +139,7 @@ Frontend: Explain the React components, state management, and API calls.
 
 Initially, the Blog App wasn’t my first choice—I intended to work on the Booking App. However, I ran into errors right from the start (npm error could not determine executable to run), and despite searching online, I couldn’t find a solution. I then tried other project options, but the same error persisted. Eventually, I gave the Blog App a try, and surprisingly, those previous errors didn’t appear, so I decided to proceed with it. While working on the Blog App, I experienced frequent crashes with Nodemon, which I later discovered were caused by an incorrect import from the frontend that wasn’t supposed to be there.
 
-![image.png](attachment:bd299f96-e972-4d0f-b8f5-ddf419ab92d0:image.png)
+![image](https://github.com/user-attachments/assets/7b436604-0681-48d4-bee7-503d2cddc605)
 
 ---
 
