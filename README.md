@@ -124,6 +124,7 @@ CSDC105 Final Project/
 ├── .gitignore
 ├── README.md                  # Project documentation
 └── package-lock.json       # For both backend and frontend
+
 ---
 
 ### Code Explanation
