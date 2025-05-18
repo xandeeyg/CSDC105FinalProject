@@ -116,6 +116,56 @@ app.put('/post', uploadMiddleware.single('file'),async (req, res) => {
     });
 });
 
+app.delete("/post/:id", async (req, res) => {
+  const { id } = req.params
+  const { token } = req.cookies
+
+  if (!token) {
+    return res.status(401).json({ error: "Not authenticated" })
+  }
+
+  try {
+    // Verify the user from the token
+    jwt.verify(token, secret, {}, async (err, info) => {
+      if (err) {
+        return res.status(401).json({ error: "Invalid token" })
+      }
+
+      // Find the post
+      const postDoc = await Post.findById(id)
+
+      if (!postDoc) {
+        return res.status(404).json({ error: "Post not found" })
+      }
+
+      // Check if the user is the author
+      const isAuthor = JSON.stringify(postDoc.author) === JSON.stringify(info.id)
+
+      if (!isAuthor) {
+        return res.status(403).json({ error: "You are not the author of this post" })
+      }
+
+      // Delete the post
+      await Post.findByIdAndDelete(id)
+
+      // If the post has a cover image, delete it too
+      if (postDoc.cover) {
+        try {
+          fs.unlinkSync(postDoc.cover)
+        } catch (e) {
+          console.log("Error deleting cover image:", e)
+          // Continue even if image deletion fails
+        }
+      }
+
+      res.json({ message: "Post deleted successfully" })
+    })
+  } catch (error) {
+    console.error("Error deleting post:", error)
+    res.status(500).json({ error: "Failed to delete post" })
+  }
+});
+
 app.get('/post', async (req, res) => {
     res.json(await Post.find()
         .populate('author', ['username'])
