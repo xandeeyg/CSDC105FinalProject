@@ -1,6 +1,7 @@
 import { format } from 'date-fns';
 import { Link } from 'react-router-dom';
 
+//Post component to display individual blog post summary
 export default function Post({_id, title, summary, cover, content, createdAt, author}) {
   return (
     <div className="post">

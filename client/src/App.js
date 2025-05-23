@@ -1,13 +1,13 @@
-import './App.css';
-import { Route, Routes } from 'react-router-dom';
-import { UserContextProvider } from './UserContext';
-import Layout from './Layout';
-import IndexPage from './pages/IndexPage';
-import LoginPage from './pages/LoginPage';
-import RegisterPage from './pages/RegisterPage';
-import CreatePost from './pages/CreatePost';
-import PostPage from './pages/PostPage';
-import EditPost from './pages/EditPost';
+import './App.css';  // Import global CSS styles
+import { Route, Routes } from 'react-router-dom';  // Import React Router components for routing
+import { UserContextProvider } from './UserContext';  // Context provider for user authentication state
+import Layout from './Layout';  // Layout component that wraps all pages (e.g., header, footer)
+import IndexPage from './pages/IndexPage';  // Homepage listing posts
+import LoginPage from './pages/LoginPage';  // Login form page
+import RegisterPage from './pages/RegisterPage';  // Registration form page
+import CreatePost from './pages/CreatePost';  // Page to create a new post
+import PostPage from './pages/PostPage';  // Page to view a single post
+import EditPost from './pages/EditPost';  // Page to edit an existing post
 
 function App() {
   return (

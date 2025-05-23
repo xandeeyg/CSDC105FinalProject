@@ -7,8 +7,9 @@ import DeletePostButton from "../DeletePostButton";
 
 export default function PostPage(){
     const [postInfo, setPostInfo] = useState(null);
-    const {userInfo} = useContext(UserContext);
-    const {id} = useParams();
+    const {userInfo} = useContext(UserContext); //Access current logged-in user info from context
+    const {id} = useParams(); //Get the post ID from URL parameters
+    //Fetch post details when component mounts or `id` changes
     useEffect(() => {
         fetch(`http://localhost:4000/post/${id}`)
         .then(response =>{

@@ -6,7 +6,7 @@ const PostSchema = new Schema({
     summary: String,
     content: String,
     cover: String,
-    author: {type:Schema.Types.ObjectId, ref: 'User'},
+    author: {type:Schema.Types.ObjectId, ref: 'User'}, //references the User model, linking each post to a specific user
 }, {
     timestamps: true,
 });
